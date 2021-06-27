@@ -1,4 +1,4 @@
-[![Build](https://github.com/netlify/netlify-plugin-secrets-manager/workflows/Build/badge.svg)](https://github.com/netlify/netlify-plugin-secrets-manager/actions)
+[![Build](https://github.com/netlify-labs/netlify-plugin-secrets-manager/workflows/Build/badge.svg)](https://github.com/netlify-labs/netlify-plugin-secrets-manager/actions)
 [![Node](https://img.shields.io/node/v/@netlify/plugin-secrets-manager.svg?logo=node.js)](https://www.npmjs.com/package/@netlify/plugin-secrets-manager)
 
 # Netlify Plugin Secrets Manager
