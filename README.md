@@ -30,7 +30,7 @@ Inject secrets from AWS Secrets Manager into the Netlify build process.
 }
 ```
 
-> You can scope the `GetSecretValue` permission to a path, but the `ListSecrets` must be a wild card `*`
+> You can scope the `GetSecretValue` permission to a path, but the `ListSecrets` must be a wildcard `*`
 
 ## Usage
 
