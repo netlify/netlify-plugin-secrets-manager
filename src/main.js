@@ -14,7 +14,7 @@ const listSecrets = async ({ client, nextToken, secrets = [] }) => {
   return newSecrets
 }
 
-const normalizedSecretValue = async ({ client, secret }) => {
+const normalizeSecretValue = async ({ client, secret }) => {
   try {
     // SecretString is a JSON string representation of the secret, e.g. '{"SECRET_NAME":"SECRET_VALUE"}'
     const { SecretString: secretString } = await client.send(new GetSecretValueCommand({ SecretId: secret.ARN }))
@@ -29,7 +29,7 @@ const normalizedSecretValue = async ({ client, secret }) => {
 }
 
 const normalizeSecrets = async ({ client, secrets }) => {
-  const values = await Promise.all(secrets.map((secret) => normalizedSecretValue({ client, secret })))
+  const values = await Promise.all(secrets.map((secret) => normalizeSecretValue({ client, secret })))
   return Object.assign({}, ...values)
 }
 
