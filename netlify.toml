@@ -1,4 +1,5 @@
 [build]
+command = "echo $AWS_SECRET_SECRET_NAME"
 publish = "public"
 [[plugins]]
 package = "."
