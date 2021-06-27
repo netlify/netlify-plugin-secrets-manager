@@ -33,23 +33,23 @@ const normalizeSecrets = async ({ client, secrets }) => {
   return Object.assign({}, ...values)
 }
 
-const SECRET_PREFIX = process.env.AWS_SECRET_PREFIX || 'AWS_SECRET_'
+const SECRET_PREFIX = process.env.NETLIFY_AWS_SECRET_PREFIX || 'NETLIFY_AWS_SECRET_'
 
 const getPrefixedKey = (key) => `${SECRET_PREFIX}${key}`
 
 module.exports = {
   async onPreBuild({ utils }) {
     const {
-      AWS_ACCESS_KEY_ID: accessKeyId,
-      AWS_SECRET_ACCESS_KEY: secretAccessKey,
-      AWS_DEFAULT_REGION: region = 'us-east-1',
+      NETLIFY_AWS_ACCESS_KEY_ID: accessKeyId,
+      NETLIFY_AWS_SECRET_ACCESS_KEY: secretAccessKey,
+      NETLIFY_AWS_DEFAULT_REGION: region = 'us-east-1',
     } = process.env
     if (!accessKeyId) {
-      return utils.build.failBuild(`Missing environment variable AWS_ACCESS_KEY_ID`)
+      return utils.build.failBuild(`Missing environment variable NETLIFY_AWS_ACCESS_KEY_ID`)
     }
 
     if (!secretAccessKey) {
-      return utils.build.failBuild(`Missing environment variable AWS_SECRET_ACCESS_KEY`)
+      return utils.build.failBuild(`Missing environment variable NETLIFY_AWS_SECRET_ACCESS_KEY`)
     }
 
     const client = new SecretsManagerClient({

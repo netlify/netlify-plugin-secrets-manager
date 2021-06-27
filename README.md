@@ -7,7 +7,8 @@ Inject secrets from AWS Secrets Manager into the Netlify build process.
 
 ## Prerequisites
 
-- `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` set as build environment variables with proper permissions, e.g.
+- `NETLIFY_AWS_ACCESS_KEY_ID` and `NETLIFY_AWS_SECRET_ACCESS_KEY` set as build environment variables with proper
+  permissions, e.g.
 
 ```json
 {
@@ -55,10 +56,10 @@ package = "@netlify/plugin-secrets-manager"
 
 ## Additional configuration
 
-- By default the plugin injects the secrets with a `AWS_SECRET_` prefix. You can override the default prefix using the
-  `AWS_SECRET_PREFIX` environment variable.
-- The plugin defaults to the `us-east-1` region. You can override the default region using the `AWS_DEFAULT_REGION`
-  environment variable.
+- By default the plugin injects the secrets with a `NETLIFY_AWS_SECRET_` prefix. You can override the default prefix
+  using the `NETLIFY_AWS_SECRET_PREFIX` environment variable.
+- The plugin defaults to the `us-east-1` region. You can override the default region using the
+  `NETLIFY_AWS_DEFAULT_REGION` environment variable.
 
 ## Contributors
 
