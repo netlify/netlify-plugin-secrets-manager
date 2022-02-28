@@ -15,22 +15,29 @@ Inject secrets from AWS Secrets Manager into the Netlify build process.
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Sid": "VisualEditor0",
-      "Effect": "Allow",
-      "Action": "secretsmanager:GetSecretValue",
-      "Resource": "arn:aws:secretsmanager:<region>:<account-id>:secret:<secret-path>"
+        "Sid": "VisualEditor0",
+        "Effect": "Allow",
+        "Action": "secretsmanager:GetSecretValue",
+        "Resource": "arn:aws:secretsmanager:us-east-1:534156574994:secret:netlify/plugin/*"
     },
     {
-      "Sid": "VisualEditor1",
-      "Effect": "Allow",
-      "Action": "secretsmanager:ListSecrets",
-      "Resource": "*"
+        "Sid": "VisualEditor1",
+        "Effect": "Allow",
+        "Action": "secretsmanager:DescribeSecret",
+        "Resource": "arn:aws:secretsmanager:us-east-1:534156574994:secret:netlify/plugin/*"
+    },
+    {
+        "Sid": "VisualEditor2",
+        "Effect": "Allow",
+        "Action": "secretsmanager:ListSecrets",
+        "Resource": "*"
     }
   ]
 }
 ```
 
-> You can scope the `GetSecretValue` permission to a path, but the `ListSecrets` must be a wildcard `*`
+> You can scope the `GetSecretValue` permission to a path, but the `ListSecrets` must be a wildcard `*`.
+> `DescribeSecret` is required for context based secrets (we use secret tags to get the context)
 
 ## Usage
 
