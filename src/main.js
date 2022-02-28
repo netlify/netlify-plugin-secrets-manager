@@ -38,7 +38,7 @@ const SECRET_PREFIX = process.env.NETLIFY_AWS_SECRET_PREFIX || 'NETLIFY_AWS_SECR
 const getPrefixedKey = (key) => `${SECRET_PREFIX}${key}`
 
 module.exports = {
-  async onPreBuild({ utils }) {
+  async onPreBuild({ netlifyConfig, utils }) {
     const {
       NETLIFY_AWS_ACCESS_KEY_ID: accessKeyId,
       NETLIFY_AWS_SECRET_ACCESS_KEY: secretAccessKey,
@@ -60,14 +60,11 @@ module.exports = {
     const normalizedSecrets = await normalizeSecrets({ client, secrets })
 
     const entries = Object.entries(normalizedSecrets)
-    entries.forEach(([key]) => {
-      console.log(
-        `${chalk.bold('Injecting AWS secret')} ${chalk.magenta(`${key}`)} as ${chalk.green(getPrefixedKey(key))}`,
-      )
+    entries.forEach(([key, value]) => {
+      const prefixedKey = getPrefixedKey(key)
+      console.log(`${chalk.bold('Injecting AWS secret')} ${chalk.magenta(`${key}`)} as ${chalk.green(prefixedKey)}`)
+      // eslint-disable-next-line no-param-reassign
+      netlifyConfig.build.environment[prefixedKey] = value
     })
-
-    const prefixedSecrets = Object.fromEntries(entries.map(([key, value]) => [getPrefixedKey(key), value]))
-
-    Object.assign(process.env, prefixedSecrets)
   },
 }
