@@ -22,7 +22,7 @@ const listSecrets = async ({ client, nextToken, secrets = [] }) => {
 const getSecretContext = async ({ client, secret }) => {
   try {
     const { Tags: tags = [] } = await client.send(new DescribeSecretCommand({ SecretId: secret.ARN }))
-    const context = tags.find(({ Key: key }) => key === 'CONTEXT')
+    const context = tags.find(({ Key: key }) => key === 'NETLIFY_CONTEXT')
     return context && context.Value
   } catch (error) {
     if (error.name === 'AccessDeniedException') {
