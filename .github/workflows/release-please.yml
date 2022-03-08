@@ -12,9 +12,32 @@ jobs:
         with:
           private-key: ${{ secrets.TOKENS_PRIVATE_KEY }}
           app-id: ${{ secrets.TOKENS_APP_ID }}
-
       - uses: GoogleCloudPlatform/release-please-action@v3
+        id: release
         with:
           token: ${{ steps.get-token.outputs.token }}
           release-type: node
           package-name: '@netlify/plugin-secrets-manager'
+      - uses: actions/checkout@v3
+        if: ${{ steps.release.outputs.release_created }}
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '*'
+          cache: 'npm'
+          check-latest: true
+          registry-url: 'https://registry.npmjs.org'
+        if: ${{ steps.release.outputs.release_created }}
+      - name: Install dependencies
+        run: npm ci
+        if: ${{ steps.release.outputs.release_created }}
+      - name: Linting
+        run: npm run format:ci
+        if: ${{ steps.release.outputs.release_created }}
+      - name: Tests
+        run: npm run test:ci
+        if: ${{ steps.release.outputs.release_created }}
+      - name: Publish to npm
+        run: npm publish
+        if: ${{ steps.release.outputs.release_created }}
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
