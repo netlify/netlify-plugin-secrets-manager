@@ -30,7 +30,8 @@
     "prettier": "--ignore-path .gitignore --loglevel=warn \"{src,test,.github}/**/*.{js,md,yml,json,html}\" \"*.{js,yml,json,html}\" \".*.{js,yml,json,html}\" \"!**/package-lock.json\" \"!package-lock.json\""
   },
   "ava": {
-    "verbose": true
+    "verbose": true,
+    "timeout": "120s"
   },
   "keywords": [],
   "license": "MIT",
