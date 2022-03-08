@@ -22,7 +22,8 @@
     "test:dev": "run-s test:dev:*",
     "test:ci": "run-s test:ci:*",
     "test:dev:ava": "ava",
-    "test:ci:ava": "nyc -r lcovonly -r text -r json ava"
+    "test:ci:ava": "nyc -r lcovonly -r text -r json ava",
+    "prepare": "husky install node_modules/@netlify/eslint-config-node/.husky/"
   },
   "config": {
     "eslint": "--ignore-path .gitignore --cache --format=codeframe --max-warnings=0 \"{src,test,.github}/**/*.{js,md,html}\" \"*.{js,md,html}\" \".*.{js,md,html}\"",
@@ -30,12 +31,6 @@
   },
   "ava": {
     "verbose": true
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-push": "npm run format"
-    }
   },
   "keywords": [],
   "license": "MIT",
