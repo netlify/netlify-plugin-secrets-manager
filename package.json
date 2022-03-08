@@ -30,7 +30,8 @@
     "prettier": "--ignore-path .gitignore --loglevel=warn \"{src,test,.github}/**/*.{js,md,yml,json,html}\" \"*.{js,yml,json,html}\" \".*.{js,yml,json,html}\" \"!**/package-lock.json\" \"!package-lock.json\""
   },
   "ava": {
-    "verbose": true
+    "verbose": true,
+    "timeout": "120s"
   },
   "keywords": [],
   "license": "MIT",
@@ -45,7 +46,7 @@
   "devDependencies": {
     "@commitlint/cli": "^16.0.0",
     "@commitlint/config-conventional": "^16.0.0",
-    "@netlify/build": "^12.28.0",
+    "@netlify/build": "^26.4.0",
     "@netlify/eslint-config-node": "^5.1.6",
     "ava": "^4.0.0",
     "husky": "^7.0.0",

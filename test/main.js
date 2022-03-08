@@ -1,9 +1,10 @@
-const netlifyBuild = require('@netlify/build')
+const netlifyBuildPromise = import('@netlify/build')
 const test = require('ava')
 
 const NETLIFY_CONFIG = `${__dirname}/../netlify.toml`
 
 test('Netlify Build fails when missing NETLIFY_AWS_ACCESS_KEY_ID env variable', async (t) => {
+  const { default: netlifyBuild } = await netlifyBuildPromise
   const { success, logs } = await netlifyBuild({
     env: {},
     config: NETLIFY_CONFIG,
@@ -17,6 +18,7 @@ test('Netlify Build fails when missing NETLIFY_AWS_ACCESS_KEY_ID env variable', 
 })
 
 test('Netlify Build fails when missing NETLIFY_AWS_SECRET_ACCESS_KEY env variable', async (t) => {
+  const { default: netlifyBuild } = await netlifyBuildPromise
   const { success, logs } = await netlifyBuild({
     env: { NETLIFY_AWS_ACCESS_KEY_ID: 'test' },
     config: NETLIFY_CONFIG,
@@ -30,6 +32,7 @@ test('Netlify Build fails when missing NETLIFY_AWS_SECRET_ACCESS_KEY env variabl
 })
 
 test('Netlify Build fails when NETLIFY_AWS_ACCESS_KEY_ID and NETLIFY_AWS_SECRET_ACCESS_KEY are invalid', async (t) => {
+  const { default: netlifyBuild } = await netlifyBuildPromise
   const { success, logs } = await netlifyBuild({
     env: { NETLIFY_AWS_ACCESS_KEY_ID: 'test', NETLIFY_AWS_SECRET_ACCESS_KEY: 'test' },
     config: NETLIFY_CONFIG,

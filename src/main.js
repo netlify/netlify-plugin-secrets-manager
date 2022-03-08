@@ -9,14 +9,18 @@ const {
 const chalk = require('chalk')
 
 const listSecrets = async ({ client, nextToken, secrets = [] }) => {
-  const response = await client.send(new ListSecretsCommand({ NextToken: nextToken }))
+  try {
+    const response = await client.send(new ListSecretsCommand({ NextToken: nextToken }))
 
-  const newSecrets = [...secrets, ...response.SecretList]
-  if (response.NextToken) {
-    return [...newSecrets, ...(await listSecrets({ client, nextToken: response.NextToken, secrets }))]
+    const newSecrets = [...secrets, ...response.SecretList]
+    if (response.NextToken) {
+      return [...newSecrets, ...(await listSecrets({ client, nextToken: response.NextToken, secrets }))]
+    }
+
+    return newSecrets
+  } catch (error) {
+    throw new Error(error.message)
   }
-
-  return newSecrets
 }
 
 const getSecretContext = async ({ client, secret }) => {
