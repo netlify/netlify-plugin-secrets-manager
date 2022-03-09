@@ -63,7 +63,7 @@ package = "@netlify/plugin-secrets-manager"
 
 ## Context based secrets
 
-The plugin supports for context based secrets, to allow injecting AWS secrets only to builds with a specific deploy context.
+The plugin supports context based secrets, to allow injecting AWS secrets only to builds with a specific deploy context.
 To configure the context for a secret, add a tag to it via AWS secrets manager with a name of `NETLIFY_CONTEXT` and value of `production`, `deploy-preview`, `branch-deploy` or any branch name in your `git` repository.
 
 >To learn more about deploy contexts, visit [Netlify's documentation](https://docs.netlify.com/site-deploys/overview/#deploy-contexts)
