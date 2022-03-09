@@ -1,5 +1,13 @@
 # Changelog
 
+### [1.1.1](https://github.com/netlify/netlify-plugin-secrets-manager/compare/v1.1.0...v1.1.1) (2022-03-09)
+
+
+### Bug Fixes
+
+* **docs:** fix another typo ([69745f0](https://github.com/netlify/netlify-plugin-secrets-manager/commit/69745f0a8f60cdeef8e451866b75a80db74d799b))
+* **docs:** update readme ([b3fc70b](https://github.com/netlify/netlify-plugin-secrets-manager/commit/b3fc70b13a6a8000784eeb97e48da61d6b547cb4))
+
 ## [1.1.0](https://github.com/netlify/netlify-plugin-secrets-manager/compare/v1.0.0...v1.1.0) (2022-03-09)
 
 
