@@ -69,7 +69,9 @@ module.exports = {
       NETLIFY_AWS_SECRET_ACCESS_KEY: secretAccessKey,
       NETLIFY_AWS_DEFAULT_REGION: region = 'us-east-1',
       CONTEXT,
+      HEAD,
     } = process.env
+
     if (!accessKeyId) {
       return utils.build.failBuild(`Missing environment variable NETLIFY_AWS_ACCESS_KEY_ID`)
     }
@@ -95,12 +97,14 @@ module.exports = {
         return
       }
 
-      // inject only to matching context
-      if (CONTEXT === context) {
+      // inject only to matching context/branch
+      const matchedContext = CONTEXT === context
+      const matchedBranch = HEAD === context
+      if (matchedContext || matchedBranch) {
         console.log(
-          `${chalk.bold('Injecting AWS secret')} ${chalk.magenta(`${key}`)} as ${chalk.green(
-            prefixedKey,
-          )} to context ${chalk.yellow(context)}`,
+          `${chalk.bold('Injecting AWS secret')} ${chalk.magenta(`${key}`)} as ${chalk.green(prefixedKey)} to ${
+            matchedContext ? 'context' : 'branch'
+          } ${chalk.yellow(context)}`,
         )
         /* eslint-disable-next-line no-param-reassign */
         netlifyConfig.build.environment[prefixedKey] = value
