@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.1.0](https://github.com/netlify/netlify-plugin-secrets-manager/compare/v1.0.0...v1.1.0) (2022-03-09)
+
+
+### Features
+
+* support filtering secrets by branch ([#33](https://github.com/netlify/netlify-plugin-secrets-manager/issues/33)) ([ccb1056](https://github.com/netlify/netlify-plugin-secrets-manager/commit/ccb10563f3bfceb8a870b52eefbae13a5428c5b2))
+
+
+### Bug Fixes
+
+* add missing doc for context based secrets ([#31](https://github.com/netlify/netlify-plugin-secrets-manager/issues/31)) ([2d09ef8](https://github.com/netlify/netlify-plugin-secrets-manager/commit/2d09ef83e15c21c0cf71b3a3ff4474c2be262e93))
+* **docs:** fix typos ([1ed95d4](https://github.com/netlify/netlify-plugin-secrets-manager/commit/1ed95d4bf25d785a5ea91bce1f2445ba1a27d741))
+
 ## 1.0.0 (2022-03-08)
 
 
