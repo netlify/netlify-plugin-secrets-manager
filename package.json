@@ -46,7 +46,7 @@
     "@commitlint/cli": "^16.0.0",
     "@commitlint/config-conventional": "^16.0.0",
     "@netlify/build": "^26.5.3",
-    "@netlify/eslint-config-node": "^5.1.8",
+    "@netlify/eslint-config-node": "^6.0.0",
     "ava": "^4.0.0",
     "husky": "^7.0.0",
     "nyc": "^15.0.0"
