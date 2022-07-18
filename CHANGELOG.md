@@ -1,5 +1,17 @@
 # Changelog
 
+### [1.1.2](https://github.com/netlify/netlify-plugin-secrets-manager/compare/v1.1.1...v1.1.2) (2022-05-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @aws-sdk/client-secrets-manager to v3.54.0 ([#35](https://github.com/netlify/netlify-plugin-secrets-manager/issues/35)) ([8532375](https://github.com/netlify/netlify-plugin-secrets-manager/commit/8532375771b7a07741b737621372c5a42ad70e6b))
+* **deps:** update dependency @aws-sdk/client-secrets-manager to v3.54.1 ([#39](https://github.com/netlify/netlify-plugin-secrets-manager/issues/39)) ([d765ebb](https://github.com/netlify/netlify-plugin-secrets-manager/commit/d765ebb954859b353184876dab23787e2407e551))
+* **deps:** update dependency @aws-sdk/client-secrets-manager to v3.56.0 ([#42](https://github.com/netlify/netlify-plugin-secrets-manager/issues/42)) ([216fec4](https://github.com/netlify/netlify-plugin-secrets-manager/commit/216fec42b3c8e46b85bbd3d028fe283d81fa39f2))
+* **deps:** update dependency @aws-sdk/client-secrets-manager to v3.58.0 ([#45](https://github.com/netlify/netlify-plugin-secrets-manager/issues/45)) ([f578fe7](https://github.com/netlify/netlify-plugin-secrets-manager/commit/f578fe7a68a320b0bdc8537a51d7aa09431ffe6e))
+* **deps:** update dependency @aws-sdk/client-secrets-manager to v3.67.0 ([#48](https://github.com/netlify/netlify-plugin-secrets-manager/issues/48)) ([2429e57](https://github.com/netlify/netlify-plugin-secrets-manager/commit/2429e57a279bc0526fd170d9e14bd16e6a8bcf39))
+* **deps:** update dependency @aws-sdk/client-secrets-manager to v3.85.0 ([#53](https://github.com/netlify/netlify-plugin-secrets-manager/issues/53)) ([6125af7](https://github.com/netlify/netlify-plugin-secrets-manager/commit/6125af791a954c6ebad33a0c61ef47eb624c4e34))
+
 ### [1.1.1](https://github.com/netlify/netlify-plugin-secrets-manager/compare/v1.1.0...v1.1.1) (2022-03-09)
 
 
