@@ -1,0 +1,23 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+        "Sid": "VisualEditor0",
+        "Effect": "Allow",
+        "Action": "secretsmanager:GetSecretValue",
+        "Resource": "arn:aws:secretsmanager:us-east-1:534156574994:secret:netlify/plugin/*"
+    },
+    {
+        "Sid": "VisualEditor1",
+        "Effect": "Allow",
+        "Action": "secretsmanager:DescribeSecret",
+        "Resource": "arn:aws:secretsmanager:us-east-1:534156574994:secret:netlify/plugin/*"
+    },
+    {
+        "Sid": "VisualEditor2",
+        "Effect": "Allow",
+        "Action": "secretsmanager:ListSecrets",
+        "Resource": "*"
+    }
+  ]
+}
